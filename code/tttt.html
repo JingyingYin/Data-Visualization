@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <style type="text/css">
+        #pop {
+            border: #000;
+            background-color: #CCC;
+            position: absolute;
+            left: 0px;
+            top: 50px;
+            width: 200px;
+            height: 500px;
+            display: none;
+        }
+
+        #btn {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+<button id="btn">打开层</button>
+<div>aa</div>
+<div>aa</div>
+
+<div id="pop">
+    浮层，点击这个浮层以外的区域/按钮，都可以隐藏这个浮层
+    <p>
+        <a href="javascript:;">最主要的是点这个div里面的链接，div照样不隐藏</a>
+    </p>
+</div>
+</body>
+
+</html>
+<script type="text/javascript">
+    // 封装获取元素的语法
+    function $(id) {
+        return document.getElementById(id);
+    }
+    window.onload = function() {
+        document.onclick = function(e) {
+            $("pop").style.display = "none";
+        }
+        // var pop = document.getElementById("pop");
+        $("btn").onclick = function(e) {
+            if (pop.style.display == "block") {
+                //对当前状态的判断
+                $("pop").style.display = "none";
+            } else {
+                $("pop").style.display = "block";
+            }
+            var e = e || window.e;
+            stopFunc(e);
+        }
+        // 用来阻止点击显示的区域隐藏
+        $("pop").onclick = function(e) {
+            var e = e || window.e;
+            stopFunc(e);
+        }
+    }
+
+    function stopFunc(e) {
+        /*标准浏览器有效 IE不行   e.stopPropagation();*/
+        /*没有兼容性问题阻止事件冒泡e.cancelBubble = true;*/
+        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+    }
+</script>

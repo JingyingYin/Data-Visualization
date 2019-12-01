@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        .main{
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        #header {
+            background-color:black;
+            color:white;
+            height:10%;
+            width:100%;
+            text-align:center;
+            padding:0;
+            position: fixed;
+        }
+        #buttons {
+            background-color:whitesmoke;
+            text-align:center;
+            color:black;
+            width:5%;
+            margin-top:6%;
+            height:90%;
+            float:left;
+            padding:0;
+            position: fixed;
+            display:table-cell;
+            vertical-align:center;
+            horiz-align: center;
+        }
+        #section {
+            float:left;
+            margin-left:5%;
+            width:95%;
+            margin-top:5%;
+            height:95%;
+            white-space: normal;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:5px;
+        }
+        button {
+            padding: 0;
+            border: none 0;
+            font: inherit;
+            color: inherit;
+            background-color: transparent;
+            cursor: pointer;
+            top:50%;
+            left:50%;
+        }
+        table {
+            border: 1px solid black;
+            border-color: gray;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+
+
+        /*#header {*/
+            /*background-color:black;*/
+            /*color:white;*/
+            /*text-align:center;*/
+            /*padding:5px;*/
+        /*}*/
+        /*#buttons {*/
+            /*line-height:30px;*/
+            /*background-color:#eeeeee;*/
+            /*height:100%;*/
+            /*width:100px;*/
+            /*float:left;*/
+            /*padding:5px;*/
+        /*}*/
+        /*#section {*/
+            /*width:350px;*/
+            /*float:left;*/
+            /*padding:10px;*/
+        /*}*/
+        /*#footer {*/
+            /*background-color:black;*/
+            /*color:white;*/
+            /*clear:both;*/
+            /*text-align:center;*/
+            /*padding:5px;*/
+        /*}*/
+
+    </style>
+</head>
+
+<body>
+
+<div id="header">
+    <h1>Google Play</h1>
+</div>
+<div class="main">
+    <div id="buttons">
+        <p><button onclick="goToRd();">Raw Data</button></p>
+        <p><button onclick="goToAlz();">Analyze</button></p>
+    </div>
+
+    <div id="section">
+        <h2 id="rd">Raw Data</h2>
+        <p>
+            Raw Data Will Show Here
+        </p>
+            <table  border="1">
+                <caption>Google Play Data</caption>
+                <tr><td>App</td><td>Category</td><td>Rating</td><td>Reviews</td><td>Size</td>
+                    <td>Installs</td><td>Type</td><td>Price</td><td>Content Rating</td><td>Genres</td>
+                    <td>Last Update</td><td>Current Version</td><td>Android Version</td></tr>
+                <!--<?php-->
+                <!--$servername = "localhost";-->
+                <!--$username = "username";-->
+                <!--$password = "password";-->
+                <!--$dbname = "myDB";-->
+                <!--$conn=mysql_connect($servername, $username, $password, $dbname));-->
+            <!--if(!$conn){-->
+                <!--echo "connection fail";-->
+            <!--}-->
+           <!--function ShowTable($table_name,$conn,$sql){-->
+
+        <!--mysql_select_db("test",$conn);-->
+        <!--mysql_query("set names utf8");-->
+
+        <!--$res=mysql_query($sql,$conn);-->
+        <!--$rows=mysql_affected_rows($conn);//获取行数-->
+        <!--$colums=mysql_num_fields($res);//获取列数-->
+        <!--echo "test数据库的"."$table_name"."表的所有用户数据如下：<br/>";-->
+                <!--echo "共计".$rows."行 ".$colums."列<br/>";-->
+
+                <!--echo "<table><tr>";-->
+                <!--for($i=0; $i < $colums; $i++){-->
+                <!--$field_name=mysql_field_name($res,$i);-->
+                <!--echo "<th>$field_name</th>";-->
+                <!--}-->
+                <!--echo "</tr>";-->
+                <!--while($row=mysql_fetch_row($res)){-->
+                <!--echo "<tr>";-->
+                    <!--for($i=0; $i<$colums; $i++){-->
+                    <!--echo "<td>$row[$i]</td>";-->
+                    <!--}-->
+                    <!--echo "</tr>";-->
+                <!--}-->
+                <!--echo "</table>";-->
+                <!--}-->
+
+                <!---->
+                <!--$sql="select * from $table_name";-->
+
+                <!--ShowTable($table_name,$conn,$sql);-->
+
+                <!--?>-->
+
+                <!--// 创建连接-->
+            <!--$conn = new mysqli($servername, $username, $password, $dbname);-->
+            <!--// Check connection-->
+            <!--if ($conn->connect_error) {-->
+                <!--die("连接失败: " . $conn->connect_error);-->
+                <!--}-->
+
+                <!--$sql = "SELECT id, firstname, lastname FROM MyGuests";-->
+                <!--$result = $conn->query($sql);-->
+
+                <!--if ($result->num_rows > 0) {-->
+                <!--// 输出数据-->
+                <!--while($row = $result->fetch_assoc()) {-->
+                <!--echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";-->
+                <!--}-->
+                <!--} else {-->
+                <!--echo "0 结果";-->
+                <!--}-->
+                <!--$conn->close();-->
+                <!--?>-->
+
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2 id="alz">Analyze</h2>
+        <p>
+            Analyze Will Show Here
+        </p>
+    </div>
+</div>
+<div id="footer">
+    Jingying Yin & Yining Zhang
+</div>
+
+
+<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+    function goToRd() {
+        document.querySelector("#rd").scrollIntoView({behavior: "instant", block: "end", inline: "nearest"});
+        // ("#rd")[0].scrollIntoView();
+    }
+    function goToAlz() {
+        document.querySelector("#alz").scrollIntoView();
+        // ("#alz")[0].scrollIntoView();
+    }
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
